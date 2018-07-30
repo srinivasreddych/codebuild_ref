@@ -4,7 +4,6 @@ phases:
   pre_build:
     commands:
       - echo Logging in to Amazon ECR...
-      - echo $HTTP_PROXY
       - aws --version
       - eval $(aws ecr get-login --region us-east-1 --no-include-email)
       - REPOSITORY_URI=560360184571.dkr.ecr.us-east-1.amazonaws.com
@@ -21,7 +20,7 @@ phases:
       - echo Build completed on `date`
       - echo Pushing the Docker images...
       - docker push $REPOSITORY_URI/$IMAGE_REPO_NAME:$IMAGE_TAG
-      - echo $REPOSITORY_URI/$IMAGE_REPO_NAME:$IMAGE_TAG > example.json
+      - printf '[{"name":"container_name","imageUri":"image_URI"}]' > imagedefinitions.json
 artifacts:
-    files: example.json
+    files: imagedefinitions.json
 
