@@ -3,7 +3,7 @@ version: 0.2
 phases:
   pre_build:
     commands:
-      - echo Logging in to Amazon ECR...
+      - echo Logging in to Amazon ECR....
       - eval $(aws ecr get-login --region us-east-1 --no-include-email)
       - REPOSITORY_URI=560360184571.dkr.ecr.us-east-1.amazonaws.com
       - IMAGE_REPO_NAME=alpine
