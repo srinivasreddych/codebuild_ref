@@ -10,6 +10,7 @@ phases:
       - export CODEBUILD_SRC_DIR=/home/admin/app/ 
       - echo $CODEBUILD_SRC_DIR 
       - mv $CODEBUILD_OLD_DIR/* $CODEBUILD_SRC_DIR/
+      - ls -al $CODEBUILD_SRC_DIR/
       - echo Logging in to Amazon ECR....
       - eval $(aws ecr get-login --region us-east-1 --no-include-email)
       - REPOSITORY_URI=560360184571.dkr.ecr.us-east-1.amazonaws.com
