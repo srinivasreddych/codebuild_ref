@@ -3,7 +3,7 @@ version: 0.2
 phases:
   install:
     commands:
-      - export build=$CODEBUILD_RESOLVED_SOURCE_VERSION
+      - export build=$CODEBUILD_SOURCE_VERSION
   pre_build:
     commands:
       - echo Logging in to Amazon ECR....
