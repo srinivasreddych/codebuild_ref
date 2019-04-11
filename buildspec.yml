@@ -2,7 +2,7 @@ version: 0.2
 
 env:
   variables:
-    BUILD_KEY: $(CODEBUILD_RESOLVED_SOURCE_VERSION)
+    BUILD_KEY: CODEBUILD_RESOLVED_SOURCE_VERSION
     
 phases:
   pre_build:
