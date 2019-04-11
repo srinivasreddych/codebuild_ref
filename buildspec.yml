@@ -1,5 +1,9 @@
 version: 0.2
 
+env:
+  variables:
+    BUILD_KEY: $CODEBUILD_RESOLVED_SOURCE_VERSION
+    
 phases:
   pre_build:
     commands:
@@ -11,7 +15,7 @@ phases:
   build:
     commands:
       - echo Build started on `date`
-      - echo $CODEBUILD_RESOLVED_SOURCE_VERSION
+      - echo $BUILD_KEY
       - echo Building the Docker image...
       - docker build -t $IMAGE_REPO_NAME:$IMAGE_TAG .
       - docker tag $IMAGE_REPO_NAME:$IMAGE_TAG $REPOSITORY_URI/$IMAGE_REPO_NAME:$IMAGE_TAG
